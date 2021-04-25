@@ -1,6 +1,8 @@
 const http = require('http')
 const express = require('express')
 const app = express()
+app.use(express.json())
+
 let alumno = [
     {id: '1', nombre: 'Fernandez', numero: '78458482159'},
     {id: '2',nombre: 'Pedro', numero: '48579856485315'},
@@ -44,7 +46,19 @@ app.get('/api/alumnos/:id', (request, response) => {
     response.status(204).end()
   })
 
+  app.post('/api/alumnos', (request, response) => {
+    const alumno = {
+        id:Math.round(Math.random()*10000),
+        nombre: req.body.nombre,
+        numero: req.body.numero,
 
+    };
+    console.log(alumno)
+  
+    response.json(alumnos)
+  })
+
+  
 const PORT = 3001
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
