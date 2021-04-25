@@ -46,7 +46,9 @@ app.get('/api/alumnos/:id', (request, response) => {
     response.status(204).end()
   })
 
-  app.post('/api/alumnos', (request, response) => {
+  
+
+  app.insert('/api/alumnos', (request, response) => {
     const alumno = {
         id:Math.round(Math.random()*10000),
         nombre: req.body.nombre,
@@ -57,6 +59,16 @@ app.get('/api/alumnos/:id', (request, response) => {
   
     response.json(alumnos)
   })
+
+ // app.post('/api/alumnos', (request, response) => {
+   // const body = request.body
+  
+    //if (!body.content) {
+      //return response.status(400).json({ 
+        //error: 'error el nombre o numero ya existe' 
+      //})
+     
+    //}
 
   
 const PORT = 3001
