@@ -28,6 +28,16 @@ app.get('/info/:id', (request, response) => {
         response.status(404).end()
     }
 })
+
+app.get('/api/alumnos/:id', (request, response) => {
+    const id = request.params.id
+    console.log(id)
+    const alumnos = alumno.find(alumno => alumno.id === id)
+    console.log(alumno)
+    response.json(alumnos)
+  })
+
+
 const PORT = 3001
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
