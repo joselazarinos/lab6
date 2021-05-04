@@ -1,5 +1,6 @@
 const http = require('http')
 const express = require('express')
+const { response } = require('express')
 const app = express()
 app.use(express.json())
 
@@ -58,6 +59,10 @@ app.get('/api/alumnos/:id', (request, response) => {
     console.log(alumno)
   
     response.json(alumnos)
+  })
+
+  app.use((request,reponse,next)=>{
+    response.status(404).send('<h1>Pagina no encontrada</h1>');
   })
 
  // app.post('/api/alumnos', (request, response) => {
