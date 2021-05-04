@@ -49,17 +49,17 @@ app.get('/api/alumnos/:id', (request, response) => {
 
   
 
-  app.insert('/api/alumnos', (request, response) => {
-    const alumno = {
-        id:Math.round(Math.random()*10000),
-        nombre: req.body.nombre,
-        numero: req.body.numero,
+  //app.insert('/api/alumnos', (request, response) => {
+    //const alumno = {
+      //  id:Math.round(Math.random()*10000),
+        //nombre: req.body.nombre,
+        //numero: req.body.numero,
 
-    };
-    console.log(alumno)
+    //};
+    //console.log(alumno)
   
-    response.json(alumnos)
-  })
+ //   response.json(alumnos)
+  //})
 
   app.use((request,reponse,next)=>{
     response.status(404).send('<h1>Pagina no encontrada</h1>');
